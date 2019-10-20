@@ -1,0 +1,3 @@
+Volumen=56
+UltimaFecha=23/09/1996 11:11:00
+Luz=25000
