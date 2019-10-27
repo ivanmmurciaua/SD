@@ -56,6 +56,7 @@ public class ServerThread extends Thread{
 	* o -1 si hay error.
 	*/
 	public void writeSocket(Socket p_sk, String p_Data, Boolean x){
+            
 		try{
                     if(x){
                         System.out.println("Escribo Controller");
@@ -115,22 +116,26 @@ public class ServerThread extends Thread{
                     else if((cabecera[1].toUpperCase()).contains("CONTROLADORSD")){
                         String[] controlador = cabecera[1].split("/");
         		if((controlador[1].toUpperCase()).equals("CONTROLADORSD")) {
-                                Socket pk_controller = new Socket(this.ip_controller,this.puerto_controller);
-                                String responseController="";
-        			for(int i=2;i<controlador.length;i++) { 
-        				System.out.println(controlador[i]);
-                                        this.writeSocket(pk_controller, controlador[i], true);
-                                        String s = "";
-                                        responseController += this.readSocket(pk_controller, s, true);
-                                }
-                                if(responseController.equals("")){
-                                    httpResponse = cabecera[2]+" 404 Not Found\r\n\r\n";
-                                    httpResponse += readFile("content/error404.html");
-                                }
-                                else{
-                                    httpResponse = cabecera[2]+" 200 OK\r\n\r\n";
-                                    httpResponse += responseController;
-                                }
+                                try(Socket pk_controller = new Socket(this.ip_controller,this.puerto_controller)){
+                                    String responseController="";
+                                    for(int i=2;i<controlador.length;i++) { 
+                                            System.out.println(controlador[i]);
+                                            this.writeSocket(pk_controller, controlador[i], true);
+                                            String s = "";
+                                            responseController += this.readSocket(pk_controller, s, true);
+                                    }
+                                    if(responseController.equals("")){
+                                        httpResponse = cabecera[2]+" 404 Not Found\r\n\r\n";
+                                        httpResponse += readFile("content/error404.html");
+                                    }
+                                    else{
+                                        httpResponse = cabecera[2]+" 200 OK\r\n\r\n";
+                                        httpResponse += responseController;
+                                    }
+                                }catch(Exception ex){
+                                    httpResponse = cabecera[2]+" 409 Controller Found\r\n\r\n";
+                                    httpResponse += readFile("content/error409.html");
+                                }        
         		}
                         else {
                             httpResponse = cabecera[2]+" 404 Not Found\r\n\r\n";

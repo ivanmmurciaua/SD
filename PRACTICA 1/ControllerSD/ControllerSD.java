@@ -1,5 +1,7 @@
 import java.io.*;
 import java.rmi.*;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.net.*;
 import java.lang.reflect.*;
 
@@ -53,13 +55,43 @@ public class ControllerSD {
 		String respRMI = "";
 		InterfazRemoto objetoRemoto = null;
 		if((method.toUpperCase()).equals("INDEX") && val == 0 && sonda == -1) {
-			int i=1;
-			boolean encontrado = true;
+
 			respRMI="<HTML>\n" +
-			"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+			"<head>"
+			+"<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>\n"
+			+ "<style type='text/css'>"
+			+ "body{"
+			+ "background-color: AliceBlue;"
+			+ "}"
+			+ " a{ font-family: 'Abel', cursive; font-size: 1.2em; }"
+			+ "</style>\n"+
 			"</head>\n" +
 			"<body>\n";
-			while(encontrado) {
+			
+			try{
+				final Registry reg = LocateRegistry.getRegistry(this.RMI_IP,Registry.REGISTRY_PORT);
+				final String[] remoteObjNames = reg.list();
+				
+				for(String remObj : remoteObjNames) {
+					try {
+						Object obj = reg.lookup(remObj);
+						if(obj instanceof InterfazRemoto) {
+							final InterfazRemoto server = (InterfazRemoto)obj;
+							String[] infos = (server.info()).split(";");
+							
+							if(Integer.parseInt(infos[1])<21845) infos[1]="LawnGreen";
+							else if(Integer.parseInt(infos[1])>21846 && Integer.parseInt(infos[1])<43690) infos[1]="yellow";
+							else infos[1]="red";
+							
+							respRMI += "<p><div id=led style='width:25px; height:25px; background-color:"+infos[1]+"; border-radius: 100% ; border: solid 1.5px;'></div> <br><a> El sensor "+infos[0]+" tiene un volumen de un "+infos[2]+"% y se modifico por ultima vez el "+infos[3]+"</a></p>\n";
+						}
+					}catch(Exception ex) {}
+					
+				}
+			}catch(Exception ex) {
+			}
+			
+			/*while(encontrado) {
 				String server = "rmi://"+this.RMI_IP+":"+this.RMI_Port+"/ObjetoRemoto"+i;
 				
 				try{
@@ -73,7 +105,7 @@ public class ControllerSD {
 					encontrado=false;
 					objetoRemoto = null;
 				}
-			}
+			}*/
 			
 			respRMI += "</body>\n" +
 					"</HTML>";
@@ -91,7 +123,7 @@ public class ControllerSD {
 					switch(method){
 							case "volumen": {
 									respRMI = "<HTML>\n" +
-			                            			"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+			                            			"<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 			                            			"</head>\n" +
 			                            			"<body>\n" +
 			                            			"<a>La sonda "+sonda+" tiene un volumen de "+objetoRemoto.volumen()+"</a>\n" +
@@ -101,7 +133,7 @@ public class ControllerSD {
 							break;
 							case "fecha": {
 									respRMI = "<HTML>\n" +
-											"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+											"<head><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 											"</head>\n" +
 											"<body>\n" +
 											"<a>"+objetoRemoto.fecha()+"</a>\n" +
@@ -111,7 +143,7 @@ public class ControllerSD {
 							break;
 							case "ultimafecha": {
 								      respRMI = "<HTML>\n" +
-			                            				"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+			                            				"<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 			                            				"</head>\n" +
 			                           				"<body>\n" +
 			                           	 			"<a>La sonda "+sonda+" tiene se modifico por ultima vez en "+objetoRemoto.ultimaFecha()+"</a>\n" +
@@ -121,12 +153,12 @@ public class ControllerSD {
 							break;
 							case "luz": {
 								String l=objetoRemoto.luz();
-									if(Integer.parseInt(l)<21845) l="black";
+									if(Integer.parseInt(l)<21845) l="LawnGreen";
 									else if(Integer.parseInt(l)>21846 && Integer.parseInt(l)<43690) l="yellow";
-									else l="LawnGreen";
+									else l="red";
 								
 								      respRMI = "<HTML>\n" +
-			                            				"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+			                            				"<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 			                            				"</head>\n" +
 			                            				"<body>\n" +
 			                            				"<div id=luz style='width:500px; height:500px; background-color: "+l+"'></div>\n" +
@@ -136,7 +168,7 @@ public class ControllerSD {
 							}
 							break;
 							default: respRMI = "<HTML>\n" +
-			                            			"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+			                            			"<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 			                            			"</head>\n" +
 			                            			"<body>\n" +
 			                            			"<a>No existe ese metodo</a>\n" +
@@ -151,17 +183,17 @@ public class ControllerSD {
 					switch(method){
 						case "setvolumen": {
 								respRMI = "<HTML>\n" +
-		                            			"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+		                            			"<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 		                            			"</head>\n" +
 		                            			"<body>\n" +
-		                            			"<a>La sonda "+sonda+" tiene un volumen de "+objetoRemoto.setvolumen(sonda,val.toString())+"</a>\n" +
+		                            			"<a>"+objetoRemoto.setvolumen(sonda,val.toString())+"</a>\n" +
 		                            			"</body>\n" +
 		                            			"</HTML>";
 						}
 						break;
 						case "setled": {
 								respRMI = "<HTML>\n" +
-										"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+										"<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 										"</head>\n" +
 										"<body>\n" +
 										"<a>"+objetoRemoto.setled(sonda,val.toString())+"</a>\n" +
@@ -170,7 +202,7 @@ public class ControllerSD {
 						}
 						break;
 						default: respRMI = "<HTML>\n" +
-		                            			"<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+		                            			"<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 		                            			"</head>\n" +
 		                            			"<body>\n" +
 		                            			"<a>No existe ese metodo</a>\n" +
@@ -184,10 +216,10 @@ public class ControllerSD {
 	        catch(Exception ex){
 	            System.out.println("Error al instanciar el objeto remoto "+ex);
 	            respRMI = "<HTML>\n" +
-	            		  "<head><style type='text/css'> body{background-color: AliceBlue;} </style>\n" +
+	            		  "<head><link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'><style type='text/css'> body{background-color: AliceBlue;} a{font-size: 2.2em; font-family: 'Abel', cursive;} </style>\n" +
 	                      "</head>\n" +
 	                      "<body>\n" +
-	                      "<a>No existe esa sonda</a>\n" +
+	                      "<a>Sonda no encontrada</a>\n" +
 	                      "</body>\n" +
 	                      "</HTML>";
 	            	//System.exit(0);
@@ -202,6 +234,7 @@ public class ControllerSD {
 	
 	public String controllerRunning(String Cadena) {
 		System.out.println(Cadena);
+		//if(Cadena=="") Cadena = "index.html";
 		if(Cadena.contains("?")){
 			//Separamos por ?
 			String[] a = Cadena.split("\\?");
@@ -237,7 +270,7 @@ public class ControllerSD {
 			
 		}
 		else{
-			if(Cadena.equals("") || Cadena.equals("index.html")) {
+			if(Cadena.equals("index.html")) {
 				Cadena = RMICall("index",0,-1);
 			}
 			else {
@@ -286,7 +319,7 @@ public class ControllerSD {
 				
 				
 				Cadena = sr.leeSocket (skCliente, Cadena);
-				System.out.println(Cadena);
+				//System.out.println(Cadena);
 				Cadena=sr.controllerRunning(Cadena);
 				sr.escribeSocket (skCliente, Cadena);
 						

@@ -35,9 +35,9 @@ implements InterfazRemoto, Serializable{
 		directorio="./sensor"+id+".txt";
 		fichero = new File(directorio);
 		if (!fichero.exists()) {
-		    this.t_volumen="30";
+		    this.t_volumen="0";
 		    this.t_fecha=this.fecha();
-		    this.t_led="4500";
+		    this.t_led="0";
 		    FileWriter escribir=new FileWriter(fichero,true);      
 		    escribir.write("Volumen="+this.t_volumen+"\nUltimaFecha="+this.t_fecha+"\nLed="+this.t_led);
 		    escribir.close();
@@ -56,45 +56,25 @@ implements InterfazRemoto, Serializable{
 		        i++;
 		    }
 		}
-	    }
-	
-	/*private Boolean leerFichi(int sonda) {
-		try(BufferedReader br = new BufferedReader(new FileReader("./sensor"+sonda+".txt"))) {
-			Integer fich=0;
-			StringBuilder sb = new StringBuilder();
-			String lecfich = br.readLine();
-			while(lecfich != null) {
-				this.lectura[fich] = lecfich.split("=")[1];
-				lecfich = br.readLine();
-				fich++;
-			}
-			return true;
-		}catch(Exception ex) {System.out.println(ex); return false;}
-	}*/
+	}
+
 	
 	public String volumen(){
-		//System.out.println(leerFichi(sonda));
-		//if(leerFichi(sonda)) return this.lectura[0];
-		//else return "";
 		return this.t_volumen;
 	}
 	
 	public String luz() {
-		//if(leerFichi(sonda)) return this.lectura[2];
-		//else return "";
 		return this.t_led;
 	}
 	
 	public String fecha() {
 		Date fechaActual = new Date();
-        	DateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
-       	 	DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-        	return formatoFecha.format(fechaActual)+" "+formatoHora.format(fechaActual);
+        DateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+       	DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        return formatoFecha.format(fechaActual)+" "+formatoHora.format(fechaActual);
 	}
 	
 	public String ultimaFecha() {
-		//if(leerFichi(sonda)) return this.lectura[1];
-		//else return "";
 		return this.t_fecha;
 	}
 	
@@ -110,14 +90,18 @@ implements InterfazRemoto, Serializable{
 	public String setled(int sonda, String val) throws UnsupportedEncodingException, IOException {
 		this.t_led = val;
 		setfecha();
-		if(writeSetters("Led=",this.t_led)) return "Luz cambiada de la sonda"+sonda+" a "+val;
+		if(writeSetters("Led=",this.t_led)) return "Luz cambiada de la sonda "+sonda+" a "+val;
 		else return "Variable no cambiada";
 	}
 	
 	public String setvolumen(int sonda, String val) throws UnsupportedEncodingException, IOException {
+		if(Integer.parseInt(val)>100) {   val = "100";   }
+		if(Integer.parseInt(val)<0) {   val = "0";   }
 		this.t_volumen = val;
 		setfecha();
-		if(writeSetters("Volumen=",this.t_volumen)) return "Volumen cambiado de la sonda"+sonda+" a "+val;
+		if(Integer.parseInt(val)>=30) {  setled(sonda,"50000");   }
+		else {  setled(sonda,"0");   }
+		if(writeSetters("Volumen=",this.t_volumen)) return "Volumen cambiado de la sonda "+sonda+" a "+val;
 		else return "Variable no cambiada";
 	}
 
