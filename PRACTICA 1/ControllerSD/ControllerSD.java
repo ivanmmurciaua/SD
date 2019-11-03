@@ -5,20 +5,33 @@ import java.rmi.registry.Registry;
 import java.net.*;
 import java.lang.reflect.*;
 
+/**
+*  Clase Controlador SD
+*  @author ivanmmurciaua
+*/
 public class ControllerSD {
 	
-	private String RMI_Port;
-	private String RMI_IP;
+	private String RMI_Port; //Puerto Maquina RMI
+	private String RMI_IP; //IP Maquina RMI
 	
+	/**
+	*  @param RMI_P  - Puerto RMI pasado por argumentos
+	*  @param RMI_ip - IP de la Máquina RMI pasada por argumentos
+	*  Constructor de la clase ControllerSD 
+	*/
 	public ControllerSD(String RMI_P, String RMI_ip) {
 		this.RMI_Port = RMI_P;
 		this.RMI_IP = RMI_ip;
 	}
 
-	/*
+	/**
+	* @param p_sk - Socket usado.
+	* @param p_Datos - Cadena para escribir lo que lee.
 	* Lee datos del socket. Supone que se le pasa un buffer con hueco 
 	*	suficiente para los datos. Devuelve el numero de bytes leidos o
 	* 0 si se cierra fichero o -1 si hay error.
+	* Lee de HTTP
+	*  @return Lo que lee del socket
 	*/
 	public String leeSocket (Socket p_sk, String p_Datos){
 		try{
@@ -33,9 +46,12 @@ public class ControllerSD {
       return p_Datos;
 	}
 
-	/*
+	/**
+	* @param p_sk - Socket usado.
+	* @param p_Datos - Cadena a escribir en el socket
 	* Escribe dato en el socket cliente. Devuelve numero de bytes escritos,
 	* o -1 si hay error.
+	* Escribe a HTTPServer 
 	*/
 	public void escribeSocket (Socket p_sk, String p_Datos){
 		try{
@@ -49,11 +65,19 @@ public class ControllerSD {
 		return;
 	}
 	
+	/**
+	*  @param method - Nombre del método remoto
+	*  @param val - Valor del posible set, si es get es 0
+	*  @param sonda - Numero de sonda
+	*  Método para comunicarse con el RMI
+	*  @return Respuesta RMI en formato de HTML construido dentro
+	*/
 	@SuppressWarnings("deprecation")
 	public String RMICall(String method, Integer val, Integer sonda) {
 		
 		String respRMI = "";
 		InterfazRemoto objetoRemoto = null;
+		//Index
 		if((method.toUpperCase()).equals("INDEX") && val == 0 && sonda == -1) {
 
 			respRMI="<HTML>\n" +
@@ -88,10 +112,11 @@ public class ControllerSD {
 					}catch(Exception ex) {}
 					
 				}
-			}catch(Exception ex) {
-			}
+			}catch(Exception ex) {}
 			
-			/*while(encontrado) {
+			/*
+			LOCURA MUY LOCA, ESTO NO VA
+			while(encontrado) {
 				String server = "rmi://"+this.RMI_IP+":"+this.RMI_Port+"/ObjetoRemoto"+i;
 				
 				try{
@@ -105,11 +130,11 @@ public class ControllerSD {
 					encontrado=false;
 					objetoRemoto = null;
 				}
-			}*/
+			}
+			*/
 			
 			respRMI += "</body>\n" +
 					"</HTML>";
-
 		}
 		else {
 			String server = "rmi://"+this.RMI_IP+":"+this.RMI_Port+"/ObjetoRemoto"+sonda;
@@ -120,6 +145,7 @@ public class ControllerSD {
 				
 				
 				if(val == 0 && sonda != -1) {
+					//GETTERS
 					switch(method){
 							case "volumen": {
 									respRMI = "<HTML>\n" +
@@ -164,7 +190,6 @@ public class ControllerSD {
 			                            				"<div id=luz style='width:500px; height:500px; background-color: "+l+"'></div>\n" +
 			                            				"</body>\n" +
 			                            				"</HTML>";
-			
 							}
 							break;
 							default: respRMI = "<HTML>\n" +
@@ -179,7 +204,6 @@ public class ControllerSD {
 				}
 				else {
 					//SETTERS
-					
 					switch(method){
 						case "setvolumen": {
 								respRMI = "<HTML>\n" +
@@ -211,7 +235,6 @@ public class ControllerSD {
 						break;
 					}
 				}
-				
 	        }
 	        catch(Exception ex){
 	            System.out.println("Error al instanciar el objeto remoto "+ex);
@@ -223,15 +246,15 @@ public class ControllerSD {
 	                      "</body>\n" +
 	                      "</HTML>";
 	            	//System.exit(0);
-	        	}
-			
+	        }
 		}
-		
-		
-		
 		return respRMI;
 	}
-	
+	/**
+	* @param Cadena - Cadena procedente del servidor HTTP 
+	* Método que separa la cadena que le llega del HTTPServer
+	* @return Cadena a responder en HTTP
+	*/
 	public String controllerRunning(String Cadena) {
 		System.out.println(Cadena);
 		//if(Cadena=="") Cadena = "index.html";
@@ -262,12 +285,10 @@ public class ControllerSD {
 					}
 				}
 				
-				//Aquí ya tendríamos todos los datos de la sonda y su metodo y sus valores y voy al baño que me estoy cagando CtrlS pls
-				
+				//Aquí ya tendríamos todos los datos de la sonda y su metodo y sus valores
 				System.out.println(method);System.out.println(val);System.out.println(valsonda);
 				Cadena = RMICall(method,val,valsonda);
-			}
-			
+			}			
 		}
 		else{
 			if(Cadena.equals("index.html")) {
@@ -277,24 +298,20 @@ public class ControllerSD {
 				Cadena = "";
 			}
 		}
-		
-
 		return Cadena;
 	}
 	
 	/**
 	 * @param args
+	 * Main que inicia el Controlador
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		/*
-		* Descriptores de socket servidor y de socket con el cliente
-		*/
+		
 		int resultado=0;
 		String Cadena="";
 		String puerto="";
+
 		try{
-			
 			if (args.length < 3) {
 				System.out.println("Debe indicar el puerto de escucha del servidor");
 				System.out.println("$./Servidor puerto_servidor IP_RMIServer puerto_RMIServer");
@@ -302,8 +319,8 @@ public class ControllerSD {
 			}
 			
 			puerto = args[0];
+			// Creamos un objeto Controlador
 			ControllerSD sr = new ControllerSD(args[2],args[1]);
-			
 			ServerSocket skServidor = new ServerSocket(Integer.parseInt(puerto));
 		    System.out.println("Escucho el puerto " + puerto);
 	
@@ -315,12 +332,12 @@ public class ControllerSD {
 				* Se espera un cliente que quiera conectarse
 				*/
 				Socket skCliente = skServidor.accept(); // Crea objeto
-		        	System.out.println("Sirviendo cliente...");
-				
+		        System.out.println("Sirviendo cliente...");
 				
 				Cadena = sr.leeSocket (skCliente, Cadena);
 				//System.out.println(Cadena);
 				Cadena=sr.controllerRunning(Cadena);
+				//Escribimos respuesta
 				sr.escribeSocket (skCliente, Cadena);
 						
 			}
@@ -329,5 +346,4 @@ public class ControllerSD {
 			System.out.println("Error: " + e.toString());
 		}
 	}
-
 }

@@ -11,15 +11,22 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+*  Clase de las sondas
+*  @author ivanmmurciaua
+*/
 public class ObjetoRemoto extends UnicastRemoteObject
 implements InterfazRemoto, Serializable{ 
 	
-	private String t_id;
-	private String t_volumen;
-	private String t_fecha;
-	private String t_led;
+	private String t_id; //id sonda
+	private String t_volumen; //volumen de la sonda
+	private String t_fecha; //ultima fecha de modificación de la sonda
+	private String t_led; //luz de la sonda 0-36535
 
-	
+	/**
+	*  @param id - Id de la sonda
+	*  Constructor de la sonda
+	*/
 	public ObjetoRemoto (String id) throws RemoteException, IOException {
 		super();
 		
@@ -32,6 +39,7 @@ implements InterfazRemoto, Serializable{
 		DateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
 		DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
 		
+		//Creamos el TXT de la sonda si no existe
 		directorio="./sensor"+id+".txt";
 		fichero = new File(directorio);
 		if (!fichero.exists()) {
@@ -42,6 +50,7 @@ implements InterfazRemoto, Serializable{
 		    escribir.write("Volumen="+this.t_volumen+"\nUltimaFecha="+this.t_fecha+"\nLed="+this.t_led);
 		    escribir.close();
 		}
+		//Si no, lo recuperamos
 		else {
 		    FileReader lector=new FileReader(directorio);
 		    BufferedReader contenido=new BufferedReader(lector);
@@ -58,15 +67,26 @@ implements InterfazRemoto, Serializable{
 		}
 	}
 
-	
+	/**
+	*  Getter del volumen
+	*  @return Volumen del sensor
+	*/
 	public String volumen(){
 		return this.t_volumen;
 	}
 	
+	/**
+	*  Getter del led
+	*  @return Valor del led del sensor
+	*/
 	public String luz() {
 		return this.t_led;
 	}
 	
+	/**
+	*  Getter de la fecha del sistema
+	*  @return Fecha actual
+	*/
 	public String fecha() {
 		Date fechaActual = new Date();
         DateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
@@ -74,10 +94,18 @@ implements InterfazRemoto, Serializable{
         return formatoFecha.format(fechaActual)+" "+formatoHora.format(fechaActual);
 	}
 	
+	/**
+	*  Getter de la ultima fecha de modificación del sensor
+	*  @return Ultima fecha de modificación del sensor
+	*/
 	public String ultimaFecha() {
 		return this.t_fecha;
 	}
 	
+	/**
+	*  Setter de la fecha, utilizado por otros métodos
+	*  @return String para saber si ha cambiado
+	*/
 	public String setfecha() throws UnsupportedEncodingException, IOException{
 		Date fechaActual = new Date();
     	DateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
@@ -87,6 +115,12 @@ implements InterfazRemoto, Serializable{
     	else return "Variable no cambiada";
 	}
 	
+	/**
+	*  @param sonda - id de la sonda(no se utiliza, solo para la respuesta)
+	*  @param val - valor a cambiar
+	*  @return String para saber si ha cambiado
+	*  Setter del led de la sonda
+	*/
 	public String setled(int sonda, String val) throws UnsupportedEncodingException, IOException {
 		this.t_led = val;
 		setfecha();
@@ -94,6 +128,12 @@ implements InterfazRemoto, Serializable{
 		else return "Variable no cambiada";
 	}
 	
+	/**
+	*  @param sonda - id de la sonda(no se usa, solo para la respuesta)
+	*  @param val - valor a cambiar
+	*  @return String para saber si ha cambiado
+	*  Setter del volumen de la sonda
+	*/
 	public String setvolumen(int sonda, String val) throws UnsupportedEncodingException, IOException {
 		if(Integer.parseInt(val)>100) {   val = "100";   }
 		if(Integer.parseInt(val)<0) {   val = "0";   }
@@ -105,10 +145,19 @@ implements InterfazRemoto, Serializable{
 		else return "Variable no cambiada";
 	}
 
+	/**
+	* Método para el index del controlador
+	*/
 	public String info(){
 		return this.t_id+";"+this.t_led+";"+this.t_volumen+";"+this.t_fecha;
 	}
 	
+	/**
+	*  @param busca - String a buscar en el fichero
+	*  @param valor - Valor a cambiar en el fichero
+	*  @return Boolean para saber si se ha escrito bien
+	*  Método para escribir en el TXT
+	*/
 	private boolean writeSetters(String busca, String valor) throws UnsupportedEncodingException, IOException{
 		File sensoor = new File("./sensor"+this.t_id+".txt");
 		try(BufferedReader br = new BufferedReader(new FileReader("./sensor"+this.t_id+".txt"))){

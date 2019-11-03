@@ -1,3 +1,0 @@
-Volumen=3434
-UltimaFecha=25/10/2019 22:10:13
-Led=50000

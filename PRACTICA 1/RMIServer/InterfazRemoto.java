@@ -3,7 +3,10 @@ import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.io.UnsupportedEncodingException;
-
+/**
+*  Interfaz para las sondas, con todos sus métodos
+*  @author ivanmmurciaua
+*/
 public interface InterfazRemoto extends Remote {
     public String volumen () throws java.rmi.RemoteException;
     public String luz() throws java.rmi.RemoteException;
