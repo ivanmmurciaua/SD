@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Sensor">
+        <wb-resource deploy-path="/" source-path="/Sensor" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="Sensor"/>
+        <property name="java-output-path" value="/Sensor/build/classes"/>
+    </wb-module>
+</project-modules>
