@@ -37,7 +37,9 @@
             this.btnChange = new System.Windows.Forms.Button();
             this.SalidaCambio = new System.Windows.Forms.RichTextBox();
             this.setter = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.idsondapuerto = new System.Windows.Forms.TextBox();
+            this.btnAñadirSonda = new System.Windows.Forms.Button();
+            this.sondasYPuertos = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.setter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,21 +51,21 @@
             "Fecha",
             "Ultima Fecha",
             "Led"});
-            this.MetodoSonda.Location = new System.Drawing.Point(47, 158);
+            this.MetodoSonda.Location = new System.Drawing.Point(260, 257);
             this.MetodoSonda.Name = "MetodoSonda";
             this.MetodoSonda.Size = new System.Drawing.Size(121, 21);
             this.MetodoSonda.TabIndex = 0;
             // 
             // IDSonda
             // 
-            this.IDSonda.Location = new System.Drawing.Point(260, 51);
+            this.IDSonda.Location = new System.Drawing.Point(719, 180);
             this.IDSonda.Name = "IDSonda";
-            this.IDSonda.Size = new System.Drawing.Size(109, 20);
+            this.IDSonda.Size = new System.Drawing.Size(68, 20);
             this.IDSonda.TabIndex = 1;
             // 
             // btnConsulta
             // 
-            this.btnConsulta.Location = new System.Drawing.Point(248, 149);
+            this.btnConsulta.Location = new System.Drawing.Point(429, 248);
             this.btnConsulta.Name = "btnConsulta";
             this.btnConsulta.Size = new System.Drawing.Size(75, 36);
             this.btnConsulta.TabIndex = 2;
@@ -73,7 +75,7 @@
             // 
             // SalidaConsulta
             // 
-            this.SalidaConsulta.Location = new System.Drawing.Point(367, 125);
+            this.SalidaConsulta.Location = new System.Drawing.Point(558, 218);
             this.SalidaConsulta.Name = "SalidaConsulta";
             this.SalidaConsulta.Size = new System.Drawing.Size(229, 82);
             this.SalidaConsulta.TabIndex = 4;
@@ -84,14 +86,14 @@
             this.MetodoACambiar.Items.AddRange(new object[] {
             "Volumen",
             "Led"});
-            this.MetodoACambiar.Location = new System.Drawing.Point(47, 294);
+            this.MetodoACambiar.Location = new System.Drawing.Point(260, 420);
             this.MetodoACambiar.Name = "MetodoACambiar";
             this.MetodoACambiar.Size = new System.Drawing.Size(121, 21);
             this.MetodoACambiar.TabIndex = 8;
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(248, 320);
+            this.btnChange.Location = new System.Drawing.Point(429, 441);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(75, 36);
             this.btnChange.TabIndex = 7;
@@ -101,7 +103,7 @@
             // 
             // SalidaCambio
             // 
-            this.SalidaCambio.Location = new System.Drawing.Point(367, 294);
+            this.SalidaCambio.Location = new System.Drawing.Point(558, 420);
             this.SalidaCambio.Name = "SalidaCambio";
             this.SalidaCambio.Size = new System.Drawing.Size(229, 82);
             this.SalidaCambio.TabIndex = 9;
@@ -109,7 +111,7 @@
             // 
             // setter
             // 
-            this.setter.Location = new System.Drawing.Point(47, 356);
+            this.setter.Location = new System.Drawing.Point(260, 482);
             this.setter.Maximum = new decimal(new int[] {
             37000,
             0,
@@ -119,21 +121,39 @@
             this.setter.Size = new System.Drawing.Size(120, 20);
             this.setter.TabIndex = 10;
             // 
-            // label1
+            // idsondapuerto
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(285, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "ID Sensor";
+            this.idsondapuerto.Location = new System.Drawing.Point(12, 41);
+            this.idsondapuerto.Name = "idsondapuerto";
+            this.idsondapuerto.Size = new System.Drawing.Size(280, 20);
+            this.idsondapuerto.TabIndex = 11;
+            // 
+            // btnAñadirSonda
+            // 
+            this.btnAñadirSonda.Location = new System.Drawing.Point(322, 38);
+            this.btnAñadirSonda.Name = "btnAñadirSonda";
+            this.btnAñadirSonda.Size = new System.Drawing.Size(133, 23);
+            this.btnAñadirSonda.TabIndex = 12;
+            this.btnAñadirSonda.Text = "Añadir Sonda";
+            this.btnAñadirSonda.UseVisualStyleBackColor = true;
+            this.btnAñadirSonda.Click += new System.EventHandler(this.btnAñadirSonda_Click);
+            // 
+            // sondasYPuertos
+            // 
+            this.sondasYPuertos.Location = new System.Drawing.Point(12, 80);
+            this.sondasYPuertos.Name = "sondasYPuertos";
+            this.sondasYPuertos.Size = new System.Drawing.Size(775, 100);
+            this.sondasYPuertos.TabIndex = 13;
+            this.sondasYPuertos.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 420);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(799, 523);
+            this.Controls.Add(this.sondasYPuertos);
+            this.Controls.Add(this.btnAñadirSonda);
+            this.Controls.Add(this.idsondapuerto);
             this.Controls.Add(this.setter);
             this.Controls.Add(this.SalidaCambio);
             this.Controls.Add(this.btnChange);
@@ -144,7 +164,7 @@
             this.Controls.Add(this.MetodoSonda);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "SENSORES";
+            this.Text = " SENSORES";
             ((System.ComponentModel.ISupportInitialize)(this.setter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -161,7 +181,9 @@
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.RichTextBox SalidaCambio;
         private System.Windows.Forms.NumericUpDown setter;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox idsondapuerto;
+        private System.Windows.Forms.Button btnAñadirSonda;
+        private System.Windows.Forms.RichTextBox sondasYPuertos;
     }
 }
 

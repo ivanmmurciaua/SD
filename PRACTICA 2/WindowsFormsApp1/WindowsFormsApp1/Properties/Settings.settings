@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="WindowsFormsApp1_boom_Sensor" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:9080/Sensor/services/Sensor.SensorHttpSoap11Endpoint/</Value>
+      <Value Profile="(Default)">http://localhost:8080/Sensor/services/Sensor.SensorHttpSoap11Endpoint/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:9080/Sensor/services/Sensor.SensorHttpSoap11Endpoint/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8080/Sensor/services/Sensor.SensorHttpSoap11Endpoint/")]
         public string WindowsFormsApp1_boom_Sensor {
             get {
                 return ((string)(this["WindowsFormsApp1_boom_Sensor"]));

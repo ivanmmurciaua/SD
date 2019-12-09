@@ -10,8 +10,27 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1{
     public partial class Form1 : Form{
-        public Form1(){
+        Form2 f;
+        String login;
+        String usuario;
+        String contrasena;
+        String clave;
+
+        public Form1(Form2 f, String login, String usuario, String cwd){
             InitializeComponent();
+            this.f = f;
+            this.login = login;
+            this.usuario = usuario;
+            this.contrasena = cwd;
+
+            idsondapuerto.Text = "localhost:8080";
+            boom.Sensor sonda = new boom.Sensor();
+
+            //Leemos la clave y la guardamos
+            System.IO.StreamReader fichero_clave = new System.IO.StreamReader(@".\clave.txt");
+            String linea;
+            while((linea=fichero_clave.ReadLine()) != null) { this.clave = linea; }
+            fichero_clave.Close();
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -60,6 +79,10 @@ namespace WindowsFormsApp1{
             else{
                 SalidaCambio.Text = "ID o Método a cambiar vacio/invalido";
             }
+        }
+
+        private void btnAñadirSonda_Click(object sender, EventArgs e){
+            sondasYPuertos.Text += idsondapuerto.Text + "\n";
         }
     }
 }

@@ -6,18 +6,6 @@
   <wsdl:types>
     <xs:schema xmlns:ax22="http://io.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.apache.org/axis2">
       <xs:import namespace="http://io.java/xsd" />
-      <xs:element name="info">
-        <xs:complexType>
-          <xs:sequence />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="infoResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="SensorIOException">
         <xs:complexType>
           <xs:sequence>
@@ -32,15 +20,84 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="leer">
+      <xs:element name="luz">
         <xs:complexType>
           <xs:sequence>
-            <xs:element minOccurs="0" name="busca" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="leerResponse">
+      <xs:element name="luzResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ultimaFecha">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ultimaFechaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fecha">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fechaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setled">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sonda" type="xs:int" />
+            <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setledResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setvolumen">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sonda" type="xs:int" />
+            <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setvolumenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="volumen">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="volumenResponse">
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
@@ -64,102 +121,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="fecha">
-        <xs:complexType>
-          <xs:sequence />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="fechaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setfecha">
-        <xs:complexType>
-          <xs:sequence />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setfechaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="volumen">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="volumenResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="luz">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="luzResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setvolumen">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="sonda" type="xs:int" />
-            <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setvolumenResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ultimaFecha">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ultimaFechaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setled">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="sonda" type="xs:int" />
-            <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setledResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
     </xs:schema>
     <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://io.java/xsd">
       <xs:complexType name="IOException">
@@ -174,23 +135,17 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="setfechaRequest">
-    <wsdl:part name="parameters" element="ns:setfecha" />
-  </wsdl:message>
-  <wsdl:message name="setfechaResponse">
-    <wsdl:part name="parameters" element="ns:setfechaResponse" />
-  </wsdl:message>
-  <wsdl:message name="SensorUnsupportedEncodingException">
-    <wsdl:part name="parameters" element="ns:SensorUnsupportedEncodingException" />
-  </wsdl:message>
-  <wsdl:message name="SensorIOException">
-    <wsdl:part name="parameters" element="ns:SensorIOException" />
-  </wsdl:message>
   <wsdl:message name="luzRequest">
     <wsdl:part name="parameters" element="ns:luz" />
   </wsdl:message>
   <wsdl:message name="luzResponse">
     <wsdl:part name="parameters" element="ns:luzResponse" />
+  </wsdl:message>
+  <wsdl:message name="SensorIOException">
+    <wsdl:part name="parameters" element="ns:SensorIOException" />
+  </wsdl:message>
+  <wsdl:message name="SensorUnsupportedEncodingException">
+    <wsdl:part name="parameters" element="ns:SensorUnsupportedEncodingException" />
   </wsdl:message>
   <wsdl:message name="fechaRequest">
     <wsdl:part name="parameters" element="ns:fecha" />
@@ -204,23 +159,17 @@
   <wsdl:message name="iniciarResponse">
     <wsdl:part name="parameters" element="ns:iniciarResponse" />
   </wsdl:message>
-  <wsdl:message name="leerRequest">
-    <wsdl:part name="parameters" element="ns:leer" />
+  <wsdl:message name="setvolumenRequest">
+    <wsdl:part name="parameters" element="ns:setvolumen" />
   </wsdl:message>
-  <wsdl:message name="leerResponse">
-    <wsdl:part name="parameters" element="ns:leerResponse" />
+  <wsdl:message name="setvolumenResponse">
+    <wsdl:part name="parameters" element="ns:setvolumenResponse" />
   </wsdl:message>
   <wsdl:message name="volumenRequest">
     <wsdl:part name="parameters" element="ns:volumen" />
   </wsdl:message>
   <wsdl:message name="volumenResponse">
     <wsdl:part name="parameters" element="ns:volumenResponse" />
-  </wsdl:message>
-  <wsdl:message name="setvolumenRequest">
-    <wsdl:part name="parameters" element="ns:setvolumen" />
-  </wsdl:message>
-  <wsdl:message name="setvolumenResponse">
-    <wsdl:part name="parameters" element="ns:setvolumenResponse" />
   </wsdl:message>
   <wsdl:message name="ultimaFechaRequest">
     <wsdl:part name="parameters" element="ns:ultimaFecha" />
@@ -234,19 +183,7 @@
   <wsdl:message name="setledResponse">
     <wsdl:part name="parameters" element="ns:setledResponse" />
   </wsdl:message>
-  <wsdl:message name="infoRequest">
-    <wsdl:part name="parameters" element="ns:info" />
-  </wsdl:message>
-  <wsdl:message name="infoResponse">
-    <wsdl:part name="parameters" element="ns:infoResponse" />
-  </wsdl:message>
   <wsdl:portType name="SensorPortType">
-    <wsdl:operation name="setfecha">
-      <wsdl:input wsaw:Action="urn:setfecha" message="ns:setfechaRequest" />
-      <wsdl:output wsaw:Action="urn:setfechaResponse" message="ns:setfechaResponse" />
-      <wsdl:fault wsaw:Action="urn:setfechaSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
-      <wsdl:fault wsaw:Action="urn:setfechaSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
-    </wsdl:operation>
     <wsdl:operation name="luz">
       <wsdl:input wsaw:Action="urn:luz" message="ns:luzRequest" />
       <wsdl:output wsaw:Action="urn:luzResponse" message="ns:luzResponse" />
@@ -263,23 +200,17 @@
       <wsdl:fault wsaw:Action="urn:iniciarSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
       <wsdl:fault wsaw:Action="urn:iniciarSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
     </wsdl:operation>
-    <wsdl:operation name="leer">
-      <wsdl:input wsaw:Action="urn:leer" message="ns:leerRequest" />
-      <wsdl:output wsaw:Action="urn:leerResponse" message="ns:leerResponse" />
-      <wsdl:fault wsaw:Action="urn:leerSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
-      <wsdl:fault wsaw:Action="urn:leerSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
+    <wsdl:operation name="setvolumen">
+      <wsdl:input wsaw:Action="urn:setvolumen" message="ns:setvolumenRequest" />
+      <wsdl:output wsaw:Action="urn:setvolumenResponse" message="ns:setvolumenResponse" />
+      <wsdl:fault wsaw:Action="urn:setvolumenSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
+      <wsdl:fault wsaw:Action="urn:setvolumenSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
     </wsdl:operation>
     <wsdl:operation name="volumen">
       <wsdl:input wsaw:Action="urn:volumen" message="ns:volumenRequest" />
       <wsdl:output wsaw:Action="urn:volumenResponse" message="ns:volumenResponse" />
       <wsdl:fault wsaw:Action="urn:volumenSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
       <wsdl:fault wsaw:Action="urn:volumenSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
-    </wsdl:operation>
-    <wsdl:operation name="setvolumen">
-      <wsdl:input wsaw:Action="urn:setvolumen" message="ns:setvolumenRequest" />
-      <wsdl:output wsaw:Action="urn:setvolumenResponse" message="ns:setvolumenResponse" />
-      <wsdl:fault wsaw:Action="urn:setvolumenSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
-      <wsdl:fault wsaw:Action="urn:setvolumenSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
     </wsdl:operation>
     <wsdl:operation name="ultimaFecha">
       <wsdl:input wsaw:Action="urn:ultimaFecha" message="ns:ultimaFechaRequest" />
@@ -293,28 +224,9 @@
       <wsdl:fault wsaw:Action="urn:setledSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
       <wsdl:fault wsaw:Action="urn:setledSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
     </wsdl:operation>
-    <wsdl:operation name="info">
-      <wsdl:input wsaw:Action="urn:info" message="ns:infoRequest" />
-      <wsdl:output wsaw:Action="urn:infoResponse" message="ns:infoResponse" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SensorSoap11Binding" type="ns:SensorPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="setfecha">
-      <soap:operation soapAction="urn:setfecha" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-      <wsdl:fault name="SensorUnsupportedEncodingException">
-        <soap:fault use="literal" name="SensorUnsupportedEncodingException" namespace="" />
-      </wsdl:fault>
-      <wsdl:fault name="SensorIOException">
-        <soap:fault use="literal" name="SensorIOException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
     <wsdl:operation name="luz">
       <soap:operation soapAction="urn:luz" style="document" />
       <wsdl:input>
@@ -354,8 +266,8 @@
         <soap:fault use="literal" name="SensorIOException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="leer">
-      <soap:operation soapAction="urn:leer" style="document" />
+    <wsdl:operation name="setvolumen">
+      <soap:operation soapAction="urn:setvolumen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -371,21 +283,6 @@
     </wsdl:operation>
     <wsdl:operation name="volumen">
       <soap:operation soapAction="urn:volumen" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-      <wsdl:fault name="SensorUnsupportedEncodingException">
-        <soap:fault use="literal" name="SensorUnsupportedEncodingException" namespace="" />
-      </wsdl:fault>
-      <wsdl:fault name="SensorIOException">
-        <soap:fault use="literal" name="SensorIOException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="setvolumen">
-      <soap:operation soapAction="urn:setvolumen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -429,33 +326,9 @@
         <soap:fault use="literal" name="SensorIOException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="info">
-      <soap:operation soapAction="urn:info" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SensorSoap12Binding" type="ns:SensorPortType">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="setfecha">
-      <soap12:operation soapAction="urn:setfecha" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-      <wsdl:fault name="SensorUnsupportedEncodingException">
-        <soap12:fault use="literal" name="SensorUnsupportedEncodingException" namespace="" />
-      </wsdl:fault>
-      <wsdl:fault name="SensorIOException">
-        <soap12:fault use="literal" name="SensorIOException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
     <wsdl:operation name="luz">
       <soap12:operation soapAction="urn:luz" style="document" />
       <wsdl:input>
@@ -495,8 +368,8 @@
         <soap12:fault use="literal" name="SensorIOException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="leer">
-      <soap12:operation soapAction="urn:leer" style="document" />
+    <wsdl:operation name="setvolumen">
+      <soap12:operation soapAction="urn:setvolumen" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -512,21 +385,6 @@
     </wsdl:operation>
     <wsdl:operation name="volumen">
       <soap12:operation soapAction="urn:volumen" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-      <wsdl:fault name="SensorUnsupportedEncodingException">
-        <soap12:fault use="literal" name="SensorUnsupportedEncodingException" namespace="" />
-      </wsdl:fault>
-      <wsdl:fault name="SensorIOException">
-        <soap12:fault use="literal" name="SensorIOException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="setvolumen">
-      <soap12:operation soapAction="urn:setvolumen" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -570,27 +428,9 @@
         <soap12:fault use="literal" name="SensorIOException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="info">
-      <soap12:operation soapAction="urn:info" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SensorHttpBinding" type="ns:SensorPortType">
     <http:binding verb="POST" />
-    <wsdl:operation name="setfecha">
-      <http:operation location="setfecha" />
-      <wsdl:input>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="luz">
       <http:operation location="luz" />
       <wsdl:input>
@@ -618,8 +458,8 @@
         <mime:content part="parameters" type="application/xml" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="leer">
-      <http:operation location="leer" />
+    <wsdl:operation name="setvolumen">
+      <http:operation location="setvolumen" />
       <wsdl:input>
         <mime:content part="parameters" type="application/xml" />
       </wsdl:input>
@@ -629,15 +469,6 @@
     </wsdl:operation>
     <wsdl:operation name="volumen">
       <http:operation location="volumen" />
-      <wsdl:input>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="setvolumen">
-      <http:operation location="setvolumen" />
       <wsdl:input>
         <mime:content part="parameters" type="application/xml" />
       </wsdl:input>
@@ -663,25 +494,16 @@
         <mime:content part="parameters" type="application/xml" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="info">
-      <http:operation location="info" />
-      <wsdl:input>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Sensor">
     <wsdl:port name="SensorHttpSoap11Endpoint" binding="ns:SensorSoap11Binding">
-      <soap:address location="http://localhost:9080/Sensor/services/Sensor.SensorHttpSoap11Endpoint/" />
+      <soap:address location="http://localhost:8080/Sensor/services/Sensor.SensorHttpSoap11Endpoint/" />
     </wsdl:port>
     <wsdl:port name="SensorHttpSoap12Endpoint" binding="ns:SensorSoap12Binding">
-      <soap12:address location="http://localhost:9080/Sensor/services/Sensor.SensorHttpSoap12Endpoint/" />
+      <soap12:address location="http://localhost:8080/Sensor/services/Sensor.SensorHttpSoap12Endpoint/" />
     </wsdl:port>
     <wsdl:port name="SensorHttpEndpoint" binding="ns:SensorHttpBinding">
-      <http:address location="http://localhost:9080/Sensor/services/Sensor.SensorHttpEndpoint/" />
+      <http:address location="http://localhost:8080/Sensor/services/Sensor.SensorHttpEndpoint/" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

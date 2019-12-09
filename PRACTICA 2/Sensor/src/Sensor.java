@@ -8,16 +8,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.crypto.Cipher;
+
 /**
 *  Clase de las sondas
 *  @author ivanmmurciaua
 */
 public class Sensor{ 
-	
-	private String t_id; //id sonda
-	private String t_volumen; //volumen de la sonda
-	private String t_fecha; //ultima fecha de modificación de la sonda
-	private String t_led; //luz de la sonda 0-36535
 	
 	public int iniciar(String id, String usuario, String contrasenya, String ip) throws IOException,UnsupportedEncodingException {
 		String directorio= "";
@@ -28,7 +25,7 @@ public class Sensor{
 		String led;
 		
 		//Creamos el TXT de la sonda si no existe
-		directorio="C:\\Users\\IVAN\\eclipse-workspace\\Sensor\\src\\sensor"+id+".txt";
+		directorio="./datos_sensores/sensor"+id+".txt";
 		fichero = new File(directorio);
 		if (!fichero.exists()) {
 		    volumen="0";
@@ -41,10 +38,10 @@ public class Sensor{
 		return 1;
 	}
 	
-	public String leer(String busca, String id) throws IOException,UnsupportedEncodingException{
+	private String leer(String busca, String id) throws IOException,UnsupportedEncodingException{
 		String sloots="";
 		
-		try(BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\IVAN\\eclipse-workspace\\Sensor\\src\\sensor"+id+".txt"))){
+		try(BufferedReader br = new BufferedReader(new FileReader("./datos_sensores/sensor"+id+".txt"))){
 			String fich = br.readLine();
 			while(fich != null){
 				if(fich.contains(busca)){
@@ -99,7 +96,7 @@ public class Sensor{
 	*  Setter de la fecha, utilizado por otros métodos
 	*  @return String para saber si ha cambiado
 	*/
-	public String setfecha(int sonda) throws UnsupportedEncodingException, IOException{
+	private String setfecha(int sonda) throws UnsupportedEncodingException, IOException{
 		Date fechaActual = new Date();
     	DateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
    	 	DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -143,13 +140,13 @@ public class Sensor{
 	*  Método para escribir en el TXT
 	*/
 	private boolean writeSetters(String busca, String valor, int ids) throws UnsupportedEncodingException, IOException{
-		File sensoor = new File("C:\\Users\\IVAN\\eclipse-workspace\\Sensor\\src\\sensor"+ids+".txt");
-		try(BufferedReader br = new BufferedReader(new FileReader("./sensor"+ids+".txt"))){
-			String sensorfalso = "C:\\Users\\IVAN\\eclipse-workspace\\Sensor\\src\\sensor"+ids+".txt";
+		File sensoor = new File("./datos_sensores/sensor"+ids+".txt");
+		try(BufferedReader br = new BufferedReader(new FileReader("./datos_sensores/sensor"+ids+".txt"))){
+			String sensorfalso = "./datos_sensores/sensor"+ids+".txt";
 			
 			File falso = new File(sensorfalso);
 			FileWriter escribir = new FileWriter(falso);
-			StringBuilder sb = new StringBuilder();
+			//StringBuilder sb = new StringBuilder();
 			String fich = br.readLine();
 
 			while(fich != null){
@@ -168,6 +165,59 @@ public class Sensor{
 		}
 		catch(Exception ex) { return false; }
 	}
+	
+	// De aqu� hasta la linea de rayas se encarga de cifrar y descifrar
+    /*private  byte[] decrypt(byte[] cipherText, byte[] key, byte [] initialVector){
+    	try {
+	        Cipher cipher = Cipher.getInstance(cipherTransformation);
+	        SecretKeySpec secretKeySpecy = new SecretKeySpec(key, aesEncryptionAlgorithm);
+	        IvParameterSpec ivParameterSpec = new IvParameterSpec(initialVector);
+	        cipher.init(Cipher.DECRYPT_MODE, secretKeySpecy, ivParameterSpec);
+	        cipherText = cipher.doFinal(cipherText);
+	        return cipherText;
+    	}catch(Exception e){ return null;}
+    }
+ 
+    private byte[] encrypt(byte[] plainText, byte[] key, byte [] initialVector) 
+    {
+    	try {
+	        Cipher cipher = Cipher.getInstance(cipherTransformation);
+	        SecretKeySpec secretKeySpec = new SecretKeySpec(key, aesEncryptionAlgorithm);
+	        IvParameterSpec ivParameterSpec = new IvParameterSpec(initialVector);
+	        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
+	        plainText = cipher.doFinal(plainText);
+	        return plainText;
+    	}catch(Exception e){ return null;}
+    }
+ 
+    private byte[] getKeyBytes(String key) {
+    	try {
+	        byte[] keyBytes= new byte[16];
+	        byte[] parameterKeyBytes= key.getBytes(characterEncoding);
+	        System.arraycopy(parameterKeyBytes, 0, keyBytes, 0, Math.min(parameterKeyBytes.length, keyBytes.length));
+	        return keyBytes;
+    	}catch(Exception e){ return null;}
+    }
+ 
+    
+    public String encrypt(String plainText) 
+    {    	
+    	String key=readKey();
+    	try {
+	    	byte[] plainTextbytes = plainText.getBytes(characterEncoding);
+	        byte[] keyBytes = getKeyBytes(key);
+	        return Base64.getEncoder().encodeToString(encrypt(plainTextbytes,keyBytes, keyBytes));
+		}catch(Exception e){ return null;}
+    }
+ 
+    public String decrypt(String encryptedText) {
+    	String key=readKey();
+    	try{
+	    	byte[] cipheredBytes = Base64.getDecoder().decode(encryptedText);
+	        byte[] keyBytes = getKeyBytes(key);
+	        return new String(decrypt(cipheredBytes, keyBytes, keyBytes), characterEncoding);
+    	}catch(Exception e){ return null;}
+    }*/
 
 }
 

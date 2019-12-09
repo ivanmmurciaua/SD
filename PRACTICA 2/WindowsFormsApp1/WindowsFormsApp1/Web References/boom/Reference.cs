@@ -29,25 +29,19 @@ namespace WindowsFormsApp1.boom {
     [System.Web.Services.WebServiceBindingAttribute(Name="SensorSoap11Binding", Namespace="http://ws.apache.org/axis2")]
     public partial class Sensor : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback setfechaOperationCompleted;
-        
         private System.Threading.SendOrPostCallback luzOperationCompleted;
         
         private System.Threading.SendOrPostCallback fechaOperationCompleted;
         
         private System.Threading.SendOrPostCallback iniciarOperationCompleted;
         
-        private System.Threading.SendOrPostCallback leerOperationCompleted;
+        private System.Threading.SendOrPostCallback setvolumenOperationCompleted;
         
         private System.Threading.SendOrPostCallback volumenOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback setvolumenOperationCompleted;
         
         private System.Threading.SendOrPostCallback ultimaFechaOperationCompleted;
         
         private System.Threading.SendOrPostCallback setledOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback infoOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -88,9 +82,6 @@ namespace WindowsFormsApp1.boom {
         }
         
         /// <remarks/>
-        public event setfechaCompletedEventHandler setfechaCompleted;
-        
-        /// <remarks/>
         public event luzCompletedEventHandler luzCompleted;
         
         /// <remarks/>
@@ -100,50 +91,16 @@ namespace WindowsFormsApp1.boom {
         public event iniciarCompletedEventHandler iniciarCompleted;
         
         /// <remarks/>
-        public event leerCompletedEventHandler leerCompleted;
+        public event setvolumenCompletedEventHandler setvolumenCompleted;
         
         /// <remarks/>
         public event volumenCompletedEventHandler volumenCompleted;
-        
-        /// <remarks/>
-        public event setvolumenCompletedEventHandler setvolumenCompleted;
         
         /// <remarks/>
         public event ultimaFechaCompletedEventHandler ultimaFechaCompleted;
         
         /// <remarks/>
         public event setledCompletedEventHandler setledCompleted;
-        
-        /// <remarks/>
-        public event infoCompletedEventHandler infoCompleted;
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:setfecha", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string setfecha() {
-            object[] results = this.Invoke("setfecha", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void setfechaAsync() {
-            this.setfechaAsync(null);
-        }
-        
-        /// <remarks/>
-        public void setfechaAsync(object userState) {
-            if ((this.setfechaOperationCompleted == null)) {
-                this.setfechaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsetfechaOperationCompleted);
-            }
-            this.InvokeAsync("setfecha", new object[0], this.setfechaOperationCompleted, userState);
-        }
-        
-        private void OnsetfechaOperationCompleted(object arg) {
-            if ((this.setfechaCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.setfechaCompleted(this, new setfechaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:luz", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -240,34 +197,34 @@ namespace WindowsFormsApp1.boom {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:leer", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:setvolumen", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string leer([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string busca, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string id) {
-            object[] results = this.Invoke("leer", new object[] {
-                        busca,
-                        id});
+        public string setvolumen(int sonda, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string val) {
+            object[] results = this.Invoke("setvolumen", new object[] {
+                        sonda,
+                        val});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void leerAsync(string busca, string id) {
-            this.leerAsync(busca, id, null);
+        public void setvolumenAsync(int sonda, string val) {
+            this.setvolumenAsync(sonda, val, null);
         }
         
         /// <remarks/>
-        public void leerAsync(string busca, string id, object userState) {
-            if ((this.leerOperationCompleted == null)) {
-                this.leerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnleerOperationCompleted);
+        public void setvolumenAsync(int sonda, string val, object userState) {
+            if ((this.setvolumenOperationCompleted == null)) {
+                this.setvolumenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsetvolumenOperationCompleted);
             }
-            this.InvokeAsync("leer", new object[] {
-                        busca,
-                        id}, this.leerOperationCompleted, userState);
+            this.InvokeAsync("setvolumen", new object[] {
+                        sonda,
+                        val}, this.setvolumenOperationCompleted, userState);
         }
         
-        private void OnleerOperationCompleted(object arg) {
-            if ((this.leerCompleted != null)) {
+        private void OnsetvolumenOperationCompleted(object arg) {
+            if ((this.setvolumenCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.leerCompleted(this, new leerCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.setvolumenCompleted(this, new setvolumenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -298,38 +255,6 @@ namespace WindowsFormsApp1.boom {
             if ((this.volumenCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.volumenCompleted(this, new volumenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:setvolumen", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string setvolumen(int sonda, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string val) {
-            object[] results = this.Invoke("setvolumen", new object[] {
-                        sonda,
-                        val});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void setvolumenAsync(int sonda, string val) {
-            this.setvolumenAsync(sonda, val, null);
-        }
-        
-        /// <remarks/>
-        public void setvolumenAsync(int sonda, string val, object userState) {
-            if ((this.setvolumenOperationCompleted == null)) {
-                this.setvolumenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsetvolumenOperationCompleted);
-            }
-            this.InvokeAsync("setvolumen", new object[] {
-                        sonda,
-                        val}, this.setvolumenOperationCompleted, userState);
-        }
-        
-        private void OnsetvolumenOperationCompleted(object arg) {
-            if ((this.setvolumenCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.setvolumenCompleted(this, new setvolumenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -396,34 +321,6 @@ namespace WindowsFormsApp1.boom {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:info", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string info() {
-            object[] results = this.Invoke("info", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void infoAsync() {
-            this.infoAsync(null);
-        }
-        
-        /// <remarks/>
-        public void infoAsync(object userState) {
-            if ((this.infoOperationCompleted == null)) {
-                this.infoOperationCompleted = new System.Threading.SendOrPostCallback(this.OninfoOperationCompleted);
-            }
-            this.InvokeAsync("info", new object[0], this.infoOperationCompleted, userState);
-        }
-        
-        private void OninfoOperationCompleted(object arg) {
-            if ((this.infoCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.infoCompleted(this, new infoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -439,32 +336,6 @@ namespace WindowsFormsApp1.boom {
                 return true;
             }
             return false;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void setfechaCompletedEventHandler(object sender, setfechaCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class setfechaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal setfechaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
         }
     }
     
@@ -548,17 +419,17 @@ namespace WindowsFormsApp1.boom {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void leerCompletedEventHandler(object sender, leerCompletedEventArgs e);
+    public delegate void setvolumenCompletedEventHandler(object sender, setvolumenCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class leerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class setvolumenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal leerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal setvolumenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -585,32 +456,6 @@ namespace WindowsFormsApp1.boom {
         private object[] results;
         
         internal volumenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void setvolumenCompletedEventHandler(object sender, setvolumenCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class setvolumenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal setvolumenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -663,32 +508,6 @@ namespace WindowsFormsApp1.boom {
         private object[] results;
         
         internal setledCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void infoCompletedEventHandler(object sender, infoCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class infoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal infoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
