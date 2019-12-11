@@ -1,0 +1,86 @@
+﻿
+11/47/2019 7:47:41  = Desde 192.168.0.12 ivan:a15f8b81a160b4eebe5c84e9e3b65c87b9b2f18e---> ACCESO CORRECTO 
+ENCRIPTADO -> 11/47/2019 7:47:47  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:48  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/47/2019 7:47:48  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre WmP/l+4/Fi1AjvFlDCrIIQ== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:48  = Desde 192.168.0.12 el usuario ivan recibe información sobre volumen de la sonda 1
+ENCRIPTADO -> 11/47/2019 7:47:51  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:51  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/47/2019 7:47:51  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre F0GO8L+7q1XVlqzHQDlp0w== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:51  = Desde 192.168.0.12 el usuario ivan recibe información sobre luz de la sonda 1
+ENCRIPTADO -> 11/47/2019 7:47:58  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere establecer a 5000 la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:58  = Desde 192.168.0.12 el usuario ivan quiere establecer a 5000 la sonda 1
+ENCRIPTADO -> 11/47/2019 7:47:58  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe el valor 5000 nuevo de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:58  = Desde 192.168.0.12 el usuario ivan recibe el valor 5000 nuevo de la sonda 1
+ENCRIPTADO -> 11/47/2019 7:47:59  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:59  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/47/2019 7:47:59  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre F0GO8L+7q1XVlqzHQDlp0w== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/47/2019 7:47:59  = Desde 192.168.0.12 el usuario ivan recibe información sobre luz de la sonda 1
+
+11/00/2019 8:00:30  = Desde 192.168.0.12 jaja:cc61a0f386a2877e3e27587fa086d2945b97c811---> ACCESO CORRECTO 
+ENCRIPTADO -> 11/00/2019 8:00:40  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/00/2019 8:00:40  = Desde 192.168.0.12 el usuario jaja quiere consultar la sonda 1
+ENCRIPTADO -> 11/00/2019 8:00:40  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== recibe información sobre WmP/l+4/Fi1AjvFlDCrIIQ== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/00/2019 8:00:40  = Desde 192.168.0.12 el usuario jaja recibe información sobre volumen de la sonda 1
+ENCRIPTADO -> 11/00/2019 8:00:49  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== quiere establecer a 234 la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/00/2019 8:00:49  = Desde 192.168.0.12 el usuario jaja quiere establecer a 234 la sonda 1
+ENCRIPTADO -> 11/00/2019 8:00:49  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== recibe el valor 234 nuevo de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/00/2019 8:00:49  = Desde 192.168.0.12 el usuario jaja recibe el valor 234 nuevo de la sonda 1
+
+11/01/2019 8:01:13  = Desde 192.168.0.12 ivan:a15f8b81a160b4eebe5c84e9e3b65c87b9b2f18e---> ACCESO CORRECTO 
+ENCRIPTADO -> 11/01/2019 8:01:19  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/01/2019 8:01:19  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/01/2019 8:01:20  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre WmP/l+4/Fi1AjvFlDCrIIQ== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/01/2019 8:01:20  = Desde 192.168.0.12 el usuario ivan recibe información sobre volumen de la sonda 1
+ENCRIPTADO -> 11/01/2019 8:01:27  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere establecer a 99 la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/01/2019 8:01:27  = Desde 192.168.0.12 el usuario ivan quiere establecer a 99 la sonda 1
+ENCRIPTADO -> 11/01/2019 8:01:27  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe el valor 99 nuevo de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/01/2019 8:01:27  = Desde 192.168.0.12 el usuario ivan recibe el valor 99 nuevo de la sonda 1
+
+11/02/2019 8:02:50  = Desde 192.168.0.12 jaja:cc61a0f386a2877e3e27587fa086d2945b97c811---> ACCESO CORRECTO 
+ENCRIPTADO -> 11/02/2019 8:02:55  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/02/2019 8:02:55  = Desde 192.168.0.12 el usuario jaja quiere consultar la sonda 1
+ENCRIPTADO -> 11/02/2019 8:02:55  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== recibe información sobre F0GO8L+7q1XVlqzHQDlp0w== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/02/2019 8:02:55  = Desde 192.168.0.12 el usuario jaja recibe información sobre luz de la sonda 1
+ENCRIPTADO -> 11/03/2019 8:03:02  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== quiere establecer a 99 la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/03/2019 8:03:02  = Desde 192.168.0.12 el usuario jaja quiere establecer a 99 la sonda 1
+ENCRIPTADO -> 11/03/2019 8:03:02  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== recibe el valor 99 nuevo de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/03/2019 8:03:02  = Desde 192.168.0.12 el usuario jaja recibe el valor 99 nuevo de la sonda 1
+ENCRIPTADO -> 11/03/2019 8:03:03  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/03/2019 8:03:03  = Desde 192.168.0.12 el usuario jaja quiere consultar la sonda 1
+ENCRIPTADO -> 11/03/2019 8:03:03  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== recibe información sobre F0GO8L+7q1XVlqzHQDlp0w== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/03/2019 8:03:03  = Desde 192.168.0.12 el usuario jaja recibe información sobre luz de la sonda 1
+ENCRIPTADO -> 11/03/2019 8:03:08  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== quiere establecer a 99 la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/03/2019 8:03:08  = Desde 192.168.0.12 el usuario jaja quiere establecer a 99 la sonda 1
+ENCRIPTADO -> 11/03/2019 8:03:08  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario 9utPNR9J1TessDmFOyAnGw== recibe el valor 99 nuevo de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/03/2019 8:03:08  = Desde 192.168.0.12 el usuario jaja recibe el valor 99 nuevo de la sonda 1
+
+11/05/2019 8:05:46  = Desde 192.168.0.12 ivan:a15f8b81a160b4eebe5c84e9e3b65c87b9b2f18e---> ACCESO CORRECTO 
+ENCRIPTADO -> 11/05/2019 8:05:53  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/05/2019 8:05:53  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/05/2019 8:05:53  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre WmP/l+4/Fi1AjvFlDCrIIQ== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/05/2019 8:05:53  = Desde 192.168.0.12 el usuario ivan recibe información sobre volumen de la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:05  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere establecer a 456 la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:05  = Desde 192.168.0.12 el usuario ivan quiere establecer a 456 la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:05  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe el valor 456 nuevo de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:05  = Desde 192.168.0.12 el usuario ivan recibe el valor 456 nuevo de la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:06  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:06  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:07  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre WmP/l+4/Fi1AjvFlDCrIIQ== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:07  = Desde 192.168.0.12 el usuario ivan recibe información sobre volumen de la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:11  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:11  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:11  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre HZUyL8tLJNnWoPp97vPDaw== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:12  = Desde 192.168.0.12 el usuario ivan recibe información sobre ultimaFecha de la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:14  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:14  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:14  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre F0GO8L+7q1XVlqzHQDlp0w== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:14  = Desde 192.168.0.12 el usuario ivan recibe información sobre luz de la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:19  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere establecer a 47 la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:19  = Desde 192.168.0.12 el usuario ivan quiere establecer a 47 la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:19  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe el valor 47 nuevo de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:19  = Desde 192.168.0.12 el usuario ivan recibe el valor 47 nuevo de la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:20  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== quiere consultar la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:20  = Desde 192.168.0.12 el usuario ivan quiere consultar la sonda 1
+ENCRIPTADO -> 11/06/2019 8:06:20  = Desde LC3Ah9FIOKKItwjYM/R/QQ== el usuario oAoWrtNeTltpLx6MVoLk8A== recibe información sobre F0GO8L+7q1XVlqzHQDlp0w== de la sonda TqbYBGKPiYkrJMhO60Sf2Q==
+SIN ENCRIPTAR -> 11/06/2019 8:06:20  = Desde 192.168.0.12 el usuario ivan recibe información sobre luz de la sonda 1

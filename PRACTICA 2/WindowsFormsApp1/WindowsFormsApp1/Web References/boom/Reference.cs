@@ -43,6 +43,8 @@ namespace WindowsFormsApp1.boom {
         
         private System.Threading.SendOrPostCallback setledOperationCompleted;
         
+        private System.Threading.SendOrPostCallback setlediOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -103,26 +105,35 @@ namespace WindowsFormsApp1.boom {
         public event setledCompletedEventHandler setledCompleted;
         
         /// <remarks/>
+        public event setlediCompletedEventHandler setlediCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:luz", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string luz([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string id) {
+        public string luz([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string id, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string usu, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pwd, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ip) {
             object[] results = this.Invoke("luz", new object[] {
-                        id});
+                        id,
+                        usu,
+                        pwd,
+                        ip});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void luzAsync(string id) {
-            this.luzAsync(id, null);
+        public void luzAsync(string id, string usu, string pwd, string ip) {
+            this.luzAsync(id, usu, pwd, ip, null);
         }
         
         /// <remarks/>
-        public void luzAsync(string id, object userState) {
+        public void luzAsync(string id, string usu, string pwd, string ip, object userState) {
             if ((this.luzOperationCompleted == null)) {
                 this.luzOperationCompleted = new System.Threading.SendOrPostCallback(this.OnluzOperationCompleted);
             }
             this.InvokeAsync("luz", new object[] {
-                        id}, this.luzOperationCompleted, userState);
+                        id,
+                        usu,
+                        pwd,
+                        ip}, this.luzOperationCompleted, userState);
         }
         
         private void OnluzOperationCompleted(object arg) {
@@ -199,26 +210,32 @@ namespace WindowsFormsApp1.boom {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:setvolumen", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string setvolumen(int sonda, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string val) {
+        public string setvolumen(int sonda, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string val, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string usu, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string c, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ip) {
             object[] results = this.Invoke("setvolumen", new object[] {
                         sonda,
-                        val});
+                        val,
+                        usu,
+                        c,
+                        ip});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void setvolumenAsync(int sonda, string val) {
-            this.setvolumenAsync(sonda, val, null);
+        public void setvolumenAsync(int sonda, string val, string usu, string c, string ip) {
+            this.setvolumenAsync(sonda, val, usu, c, ip, null);
         }
         
         /// <remarks/>
-        public void setvolumenAsync(int sonda, string val, object userState) {
+        public void setvolumenAsync(int sonda, string val, string usu, string c, string ip, object userState) {
             if ((this.setvolumenOperationCompleted == null)) {
                 this.setvolumenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsetvolumenOperationCompleted);
             }
             this.InvokeAsync("setvolumen", new object[] {
                         sonda,
-                        val}, this.setvolumenOperationCompleted, userState);
+                        val,
+                        usu,
+                        c,
+                        ip}, this.setvolumenOperationCompleted, userState);
         }
         
         private void OnsetvolumenOperationCompleted(object arg) {
@@ -231,24 +248,30 @@ namespace WindowsFormsApp1.boom {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:volumen", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string volumen([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string id) {
+        public string volumen([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string id, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string usu, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pwd, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ip) {
             object[] results = this.Invoke("volumen", new object[] {
-                        id});
+                        id,
+                        usu,
+                        pwd,
+                        ip});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void volumenAsync(string id) {
-            this.volumenAsync(id, null);
+        public void volumenAsync(string id, string usu, string pwd, string ip) {
+            this.volumenAsync(id, usu, pwd, ip, null);
         }
         
         /// <remarks/>
-        public void volumenAsync(string id, object userState) {
+        public void volumenAsync(string id, string usu, string pwd, string ip, object userState) {
             if ((this.volumenOperationCompleted == null)) {
                 this.volumenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnvolumenOperationCompleted);
             }
             this.InvokeAsync("volumen", new object[] {
-                        id}, this.volumenOperationCompleted, userState);
+                        id,
+                        usu,
+                        pwd,
+                        ip}, this.volumenOperationCompleted, userState);
         }
         
         private void OnvolumenOperationCompleted(object arg) {
@@ -261,24 +284,30 @@ namespace WindowsFormsApp1.boom {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:ultimaFecha", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string ultimaFecha([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string id) {
+        public string ultimaFecha([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string id, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string usu, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pwd, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ip) {
             object[] results = this.Invoke("ultimaFecha", new object[] {
-                        id});
+                        id,
+                        usu,
+                        pwd,
+                        ip});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void ultimaFechaAsync(string id) {
-            this.ultimaFechaAsync(id, null);
+        public void ultimaFechaAsync(string id, string usu, string pwd, string ip) {
+            this.ultimaFechaAsync(id, usu, pwd, ip, null);
         }
         
         /// <remarks/>
-        public void ultimaFechaAsync(string id, object userState) {
+        public void ultimaFechaAsync(string id, string usu, string pwd, string ip, object userState) {
             if ((this.ultimaFechaOperationCompleted == null)) {
                 this.ultimaFechaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnultimaFechaOperationCompleted);
             }
             this.InvokeAsync("ultimaFecha", new object[] {
-                        id}, this.ultimaFechaOperationCompleted, userState);
+                        id,
+                        usu,
+                        pwd,
+                        ip}, this.ultimaFechaOperationCompleted, userState);
         }
         
         private void OnultimaFechaOperationCompleted(object arg) {
@@ -291,32 +320,70 @@ namespace WindowsFormsApp1.boom {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:setled", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
-        public string setled(int sonda, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string val) {
+        public string setled(int sonda, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string val, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string usu, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string c, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string ip) {
             object[] results = this.Invoke("setled", new object[] {
                         sonda,
-                        val});
+                        val,
+                        usu,
+                        c,
+                        ip});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void setledAsync(int sonda, string val) {
-            this.setledAsync(sonda, val, null);
+        public void setledAsync(int sonda, string val, string usu, string c, string ip) {
+            this.setledAsync(sonda, val, usu, c, ip, null);
         }
         
         /// <remarks/>
-        public void setledAsync(int sonda, string val, object userState) {
+        public void setledAsync(int sonda, string val, string usu, string c, string ip, object userState) {
             if ((this.setledOperationCompleted == null)) {
                 this.setledOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsetledOperationCompleted);
             }
             this.InvokeAsync("setled", new object[] {
                         sonda,
-                        val}, this.setledOperationCompleted, userState);
+                        val,
+                        usu,
+                        c,
+                        ip}, this.setledOperationCompleted, userState);
         }
         
         private void OnsetledOperationCompleted(object arg) {
             if ((this.setledCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.setledCompleted(this, new setledCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:setledi", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
+        public string setledi(int sonda, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string val) {
+            object[] results = this.Invoke("setledi", new object[] {
+                        sonda,
+                        val});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void setlediAsync(int sonda, string val) {
+            this.setlediAsync(sonda, val, null);
+        }
+        
+        /// <remarks/>
+        public void setlediAsync(int sonda, string val, object userState) {
+            if ((this.setlediOperationCompleted == null)) {
+                this.setlediOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsetlediOperationCompleted);
+            }
+            this.InvokeAsync("setledi", new object[] {
+                        sonda,
+                        val}, this.setlediOperationCompleted, userState);
+        }
+        
+        private void OnsetlediOperationCompleted(object arg) {
+            if ((this.setlediCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.setlediCompleted(this, new setlediCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -508,6 +575,32 @@ namespace WindowsFormsApp1.boom {
         private object[] results;
         
         internal setledCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void setlediCompletedEventHandler(object sender, setlediCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class setlediCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal setlediCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

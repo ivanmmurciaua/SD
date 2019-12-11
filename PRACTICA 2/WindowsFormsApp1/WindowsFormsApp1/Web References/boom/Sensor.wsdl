@@ -24,51 +24,13 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="usu" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="luzResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ultimaFecha">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ultimaFechaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="fecha">
-        <xs:complexType>
-          <xs:sequence />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="fechaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setled">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="sonda" type="xs:int" />
-            <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="setledResponse">
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
@@ -80,6 +42,9 @@
           <xs:sequence>
             <xs:element name="sonda" type="xs:int" />
             <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="usu" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="c" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -90,14 +55,35 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="volumen">
+      <xs:element name="ultimaFecha">
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="usu" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="volumenResponse">
+      <xs:element name="ultimaFechaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setled">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sonda" type="xs:int" />
+            <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="usu" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="c" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setledResponse">
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
@@ -118,6 +104,50 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element name="return" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fecha">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fechaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="volumen">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="usu" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="volumenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setledi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sonda" type="xs:int" />
+            <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setlediResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -183,6 +213,12 @@
   <wsdl:message name="setledResponse">
     <wsdl:part name="parameters" element="ns:setledResponse" />
   </wsdl:message>
+  <wsdl:message name="setlediRequest">
+    <wsdl:part name="parameters" element="ns:setledi" />
+  </wsdl:message>
+  <wsdl:message name="setlediResponse">
+    <wsdl:part name="parameters" element="ns:setlediResponse" />
+  </wsdl:message>
   <wsdl:portType name="SensorPortType">
     <wsdl:operation name="luz">
       <wsdl:input wsaw:Action="urn:luz" message="ns:luzRequest" />
@@ -223,6 +259,12 @@
       <wsdl:output wsaw:Action="urn:setledResponse" message="ns:setledResponse" />
       <wsdl:fault wsaw:Action="urn:setledSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
       <wsdl:fault wsaw:Action="urn:setledSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
+    </wsdl:operation>
+    <wsdl:operation name="setledi">
+      <wsdl:input wsaw:Action="urn:setledi" message="ns:setlediRequest" />
+      <wsdl:output wsaw:Action="urn:setlediResponse" message="ns:setlediResponse" />
+      <wsdl:fault wsaw:Action="urn:setlediSensorUnsupportedEncodingException" name="SensorUnsupportedEncodingException" message="ns:SensorUnsupportedEncodingException" />
+      <wsdl:fault wsaw:Action="urn:setlediSensorIOException" name="SensorIOException" message="ns:SensorIOException" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SensorSoap11Binding" type="ns:SensorPortType">
@@ -313,6 +355,21 @@
     </wsdl:operation>
     <wsdl:operation name="setled">
       <soap:operation soapAction="urn:setled" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SensorUnsupportedEncodingException">
+        <soap:fault use="literal" name="SensorUnsupportedEncodingException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SensorIOException">
+        <soap:fault use="literal" name="SensorIOException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setledi">
+      <soap:operation soapAction="urn:setledi" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -428,6 +485,21 @@
         <soap12:fault use="literal" name="SensorIOException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="setledi">
+      <soap12:operation soapAction="urn:setledi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SensorUnsupportedEncodingException">
+        <soap12:fault use="literal" name="SensorUnsupportedEncodingException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SensorIOException">
+        <soap12:fault use="literal" name="SensorIOException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SensorHttpBinding" type="ns:SensorPortType">
     <http:binding verb="POST" />
@@ -487,6 +559,15 @@
     </wsdl:operation>
     <wsdl:operation name="setled">
       <http:operation location="setled" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setledi">
+      <http:operation location="setledi" />
       <wsdl:input>
         <mime:content part="parameters" type="application/xml" />
       </wsdl:input>
